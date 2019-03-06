@@ -1,0 +1,62 @@
+var canvas = document.getElementById("myCanvas");
+var context =canvas.getContext('2d')
+
+var colors = ['#a5dff9', '#ef5285', '#feee7d']
+var bricks = [];
+
+var numBricks = 200; 
+//var topLeftX = 200; // not this one
+//var topLeftY = 100; // change into function with random location
+var brick_w = 80; // small bricks 
+var brick_h = 20;
+var smallY = 125; // +300 in the topLeft function will give coords between 300 - 500
+var medY = 300;
+var medPlusY = 425;
+var maxY = 500;
+
+
+// between 1 and 125 
+var topLeftX = function() {
+  return (Math.ceil(Math.random() * smallY)) + 1; 
+} 
+console.log(topLeftX());
+
+// between 1 and 300 
+var topLeftY = function() {
+  return (Math.ceil(Math.random() * medY)) + 1; 
+} 
+console.log(topLeftY());
+
+
+// between 1 and 425 
+var topLeftY = function() {
+  return (Math.ceil(Math.random() * medPlusY)) + 1; 
+} 
+console.log(topLeftY());
+
+// between 1 and 425 
+var topLeftY = function() {
+  return (Math.ceil(Math.random() * maxY)) + 1; 
+} 
+console.log(topLeftY());
+
+/*
+// brick loop:
+function addBricks() {
+  for (var i = 0; i <=numBricks; i++) {
+    bricks[0] += 1;
+  }
+}
+*/ 
+
+function drawRectangle(topLeftX,topLeftY, boxWidth,boxHeight, fillColor) {
+  context.beginPath();
+  context.rect(topLeftX,topLeftY, boxWidth,boxHeight);
+  context.fillStyle = 'grey';
+  context.fill();
+};
+
+drawRectangle(topLeftX, topLeftY, brick_w, brick_h);
+
+// follows this tutorial:
+// https://www.youtube.com/watch?v=XATr_jdh-44
